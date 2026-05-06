@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(64, 64, 62);
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 40px;
+}
+h1{
+    color: rgb(38, 142, 12);
+    text-align: center;
+}
+p{
+    color: rgb(9, 172, 11);
+    text-align: center; 
+}
