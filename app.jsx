@@ -1,7 +1,7 @@
 function Navbar() {
     return (
         <nav>
-            <span>Mr SA🇿🇦</span>
+            <span>Mr     SA🇿🇦</span>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -30,18 +30,31 @@ function Hero() {
         <section id="hero">
             <h1>{text}<span className="cursor">|</span></h1>
             <p>I Write Code for Living</p>
-            <a href="#projects">See my work</a>
+            <a href="#projects" link rel="projects.jsx">Read About My Work</a>
         </section>
     )
 }
 
 function App() {
+    const [page, setPage] = React.useState('home')
+
     return (
         <div>
             <Navbar />
-            <Hero />
+            {page === 'home' && <Hero setPage={setPage} />}
+            {page === 'projects' && <Projects />}
         </div>
     )
 }
+
+function Projects() {
+    return (
+        <section id="projects">
+            <h2>My Projects</h2>
+            <p>Coming soon...</p>
+        </section>
+    )
+}
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />)
