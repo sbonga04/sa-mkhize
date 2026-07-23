@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<div class="redline-strip"></div>
+<body>
+    <nav>
+        <div class="logo"><span class="flag">🇿🇦</span>MR SA<span class="accent">.</span></div>
+        <ul class="nav-links">
+            <li><a href="app2.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav> 
+</body>
+<style>
+ 
+  :root {
+    --carbon: #0d0e10;
+    --panel: #16181b;
+    --aluminum: #c9cdd1;
+    --aluminum-dim: #6d7378;
+    --racing-red: #e63946;
+    --gauge-amber: #ffb703;
+    --text-light: #eef1f3;
+    --text-dim: #8a9096;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background:
+      repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.783) 0px, rgba(255,255,255,0.025) 2px, transparent 2px, transparent 4px),
+      repeating-linear-gradient(-45deg, rgba(100, 41, 41, 0.927) 0px, rgba(0,0,0,0.3) 2px, transparent 2px, transparent 4px),
+      var(--carbon);
+    background-size: 6px 6px;
+    color: var(--text-light);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+  }
+
+  .redline-strip {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--racing-red), var(--gauge-amber), var(--racing-red));
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo .flag { font-size: 18px; }
+  .logo .accent { color: var(--racing-red); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--racing-red);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--text-light); }
+  .nav-links a:hover::after { width: 100%; }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  
+  </style>
+
+</html>
