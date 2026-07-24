@@ -17,6 +17,54 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+         
+      <section class="section">
+        <div class="section-tag">ROUTE LOG <span>#001-004</span></div>
+        <h2>My <span class="highlight">Journey</span></h2>
+      
+        <div class="road">
+          <div class="road-line"></div>
+      
+          <div class="stop">
+            <div class="gear">1</div>
+            <div class="stop-content">
+              <div class="stop-location">ORIGIN <span class="year">· JOZINI, KWAZULU-NATAL</span></div>
+              <div class="stop-title">Where it started</div>
+              <div class="stop-desc">Grew up in Jozini, in a semi-rural KwaZulu-Natal community — the kind of place where you learn to figure things out yourself, because there isn't always someone nearby to ask.</div>
+            </div>
+          </div>
+      
+          <div class="stop">
+            <div class="gear">2</div>
+            <div class="stop-content">
+              <div class="stop-location">RELOCATION <span class="year">· CAPE TOWN</span></div>
+              <div class="stop-title">The move south</div>
+              <div class="stop-desc">Left home for Cape Town to pursue a degree — trading a familiar, close-knit community for a much bigger city and a much steeper learning curve.</div>
+            </div>
+          </div>
+      
+          <div class="stop">
+            <div class="gear">3</div>
+            <div class="stop-content">
+              <div class="stop-location">CHECKPOINT <span class="year">· 3RD YEAR</span></div>
+              <div class="stop-title">BSc Computer Science</div>
+              <div class="stop-desc">Now in third year, with a growing pull toward DevOps and infrastructure — the layer of software that keeps everything else running.</div>
+            </div>
+          </div>
+      
+          <div class="stop current">
+            <div class="gear">4</div>
+            <div class="stop-content">
+              <div class="stop-location">CURRENT POSITION <span class="year">· NOW</span></div>
+              <div class="stop-title">Building, applying, aiming higher</div>
+              <div class="stop-desc">Rebuilding WelaCab from scratch to properly understand the stack it runs on, while working toward roles in server infrastructure — with an eye on expert-level DevOps and, eventually, low-level systems work.</div>
+              <div class="current-badge">In Progress</div>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+
     </body>
     <style>
  
@@ -110,5 +158,146 @@
     background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+  
+  .section {
+    padding: 80px 48px 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+ 
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--racing-red);
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .section-tag span { color: var(--gauge-amber); }
+ 
+  h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 56px;
+  }
+  h2 .highlight { color: var(--racing-red); }
+ 
+  /* Road */
+  .road {
+    position: relative;
+    padding-left: 8px;
+  }
+  .road-line {
+    position: absolute;
+    left: 32px;
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--gauge-amber) 0px, var(--gauge-amber) 14px,
+      transparent 14px, transparent 26px
+    );
+  }
+ 
+  .stop {
+    position: relative;
+    display: flex;
+    gap: 32px;
+    padding-bottom: 56px;
+  }
+  .stop:last-child { padding-bottom: 0; }
+ 
+  .gear {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #33373b, var(--panel) 70%);
+    border: 3px solid var(--racing-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--gauge-amber);
+    box-shadow: 0 0 0 6px var(--carbon), 0 4px 12px rgba(0,0,0,0.5);
+  }
+  .stop.current .gear {
+    border-color: var(--gauge-amber);
+    color: var(--racing-red);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 6px var(--carbon), 0 0 0 rgba(255,183,3,0.5); }
+    50% { box-shadow: 0 0 0 6px var(--carbon), 0 0 18px rgba(255,183,3,0.6); }
+  }
+ 
+  .stop-content {
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 24px 28px;
+    flex: 1;
+    max-width: 640px;
+  }
+ 
+  .stop-location {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .stop-location .year { color: var(--gauge-amber); }
+ 
+  .stop-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+ 
+  .stop-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-dim);
+  }
+ 
+  .current-badge {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--racing-red);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+ 
+  @media (max-width: 700px) {
+    .section { padding: 56px 24px 70px; }
+    h2 { font-size: 30px; }
+    .nav-links { display: none; }
+    .stop { gap: 18px; }
+    .road-line { left: 24px; }
+    .gear { width: 48px; height: 48px; font-size: 16px; }
+    .stop-title { font-size: 19px; }
+  }
+ 
     </style>
 </html>

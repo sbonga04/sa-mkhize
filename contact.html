@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Section Mockup (Simple)</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --carbon: #0d0e10;
+    --panel: #16181b;
+    --aluminum: #c9cdd1;
+    --aluminum-dim: #6d7378;
+    --racing-red: #e63946;
+    --gauge-amber: #ffb703;
+    --text-light: #eef1f3;
+    --text-dim: #8a9096;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background:
+      repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.783) 0px, rgba(255,255,255,0.025) 2px, transparent 2px, transparent 4px),
+      repeating-linear-gradient(-45deg, rgba(100, 41, 41, 0.927) 0px, rgba(0,0,0,0.3) 2px, transparent 2px, transparent 4px),
+      var(--carbon);
+    background-size: 6px 6px;
+    color: var(--text-light);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+  }
+
+  .redline-strip {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--racing-red), var(--gauge-amber), var(--racing-red));
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo .flag { font-size: 18px; }
+  .logo .accent { color: var(--racing-red); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--racing-red);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--text-light); }
+  .nav-links a:hover::after { width: 100%; }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: linear-gradient(180deg, #1a1c1f 0%, #0d0e10 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .section {
+    padding: 80px 48px 100px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--racing-red);
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .section-tag span { color: var(--gauge-amber); }
+
+  h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  h2 .highlight { color: var(--racing-red); }
+
+  .section-note {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .radio-panel {
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .radio-header {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--aluminum);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .radio-header .live-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--signal-green);
+    box-shadow: 0 0 6px var(--signal-green);
+    animation: blink-dot 1.6s ease-in-out infinite;
+  }
+  @keyframes blink-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .channel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: background 0.15s ease;
+    margin-bottom: 4px;
+  }
+  .channel:hover { background: var(--panel-light); }
+
+  .indicator {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--carbon);
+    border: 2px solid var(--aluminum-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  .channel:hover .indicator {
+    border-color: var(--gauge-amber);
+    box-shadow: 0 0 12px rgba(255,183,3,0.4);
+  }
+  .indicator svg { width: 17px; height: 17px; stroke: var(--text-dim); transition: stroke 0.2s ease; }
+  .channel:hover .indicator svg { stroke: var(--gauge-amber); }
+
+  .channel-text .label { font-size: 10px; letter-spacing: 1.5px; color: var(--text-dim); text-transform: uppercase; }
+  .channel-text .value { font-size: 14px; color: var(--text-light); margin-top: 2px; }
+
+  .status-plate {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(255,255,255,0.12);
+    font-size: 11px;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+  }
+  .status-plate .ok { color: var(--signal-green); }
+
+  @media (max-width: 700px) {
+    .section { padding: 56px 24px 70px; }
+    h2 { font-size: 30px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="redline-strip"></div>
+<nav>
+  <div class="logo">🇿🇦 MR SA<span class="accent">.</span></div>
+  <ul class="nav-links">
+    <li><a href="app2.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+  </ul>
+</nav>
+
+<section class="section">
+  <div class="section-tag">PIT LANE <span>· RADIO CHECK</span></div>
+  <h2>Get In <span class="highlight">Touch</span></h2>
+  <p class="section-note">Reach me directly on any of these channels.</p>
+
+  <div class="radio-panel">
+    <div class="radio-header"><span class="live-dot"></span>Direct Channels</div>
+
+    <a href="#" class="channel">
+      <div class="indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+      </div>
+      <div class="channel-text">
+        <div class="label">Email</div>
+        <div class="value">alpha@example.com</div>
+      </div>
+    </a>
+
+    <a href="#" class="channel">
+      <div class="indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </div>
+      <div class="channel-text">
+        <div class="label" ">GitHub</div>
+        <div class="value">github.com/sbonga04</div>
+      </div>
+    </a>
+
+    <a href="#" class="channel">
+      <div class="indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div class="channel-text">
+        <div class="label">LinkedIn</div>
+        <div class="value">/in/alpha-mkhize</div>
+      </div>
+    </a>
+
+    <a href="#" class="channel">
+      <div class="indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="channel-text">
+        <div class="label">Location</div>
+        <div class="value">Cape Town, ZA</div>
+      </div>
+    </a>
+
+    <div class="status-plate">
+      <span>SIGNAL STATUS</span>
+      <span class="ok">● ONLINE</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
