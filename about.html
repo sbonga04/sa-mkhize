@@ -4,7 +4,13 @@
         <meta charset="UTF-8">
         <title>About Alpha</title>
         <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+        <script>
+        (function() {
+          const saved = localStorage.getItem('theme');
+          if (saved) document.documentElement.setAttribute('data-theme', saved);
+        })();
+        </script>
     </head>
     <div class="redline-strip"></div>
     <body>
@@ -16,8 +22,14 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+              <button class="mode-toggle" id="modeToggle" aria-label="Toggle day/night mode">
+                <div class="mode-labels"><span>N</span><span>D</span></div>
+                <div class="mode-knob">
+                  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </div>
+          </button>
         </nav>
-         
       <section class="section">
         <div class="section-tag">ROUTE LOG <span>#001-004</span></div>
         <h2>My <span class="highlight">Journey</span></h2>
@@ -66,6 +78,22 @@
       </section>
 
     </body>
+    <script>
+      const toggle = document.getElementById('modeToggle');
+
+      // Apply saved theme on load
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+
+      toggle.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const next = isLight ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    </script>
     <style>
  
   :root {
@@ -298,6 +326,88 @@
     .gear { width: 48px; height: 48px; font-size: 16px; }
     .stop-title { font-size: 19px; }
   }
- 
-    </style>
+  /* ===== Day/Night mode additions ===== */
+
+[data-theme="light"] {
+  --carbon: #eceef0;
+  --panel: #ffffff;
+  --aluminum: #3d4247;
+  --aluminum-dim: #9aa0a5;
+  --text-light: #14161a;
+  --text-dim: #5a6066;
+}
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+[data-theme="light"] body {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 2px, transparent 4px),
+    var(--carbon);
+  background-size: 6px 6px;
+}
+
+/* Headlight rocker switch */
+.mode-toggle {
+  position: absolute;
+  top: 25px;
+  right: 1250px;
+  width: 64px;
+  height: 30px;
+  background: linear-gradient(180deg, #26292d, #101214);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+[data-theme="light"] .mode-toggle {
+  background: linear-gradient(180deg, #d8dbde, #c2c6ca);
+  border-color: rgba(0,0,0,0.15);
+}
+
+.mode-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 22px;
+  background: linear-gradient(180deg, #4a4f54, #2a2d31);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-theme="light"] .mode-knob {
+  transform: translateX(34px);
+  background: linear-gradient(180deg, var(--gauge-amber), #d99a02);
+}
+
+.mode-knob svg { width: 13px; height: 13px; }
+.mode-knob .icon-moon { stroke: var(--gauge-amber); display: block; }
+.mode-knob .icon-sun { stroke: #14161a; display: none; }
+[data-theme="light"] .mode-knob .icon-moon { display: none; }
+[data-theme="light"] .mode-knob .icon-sun { display: block; }
+
+.mode-labels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  pointer-events: none;
+}
+.mode-labels span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+    </style>    
 </html>
