@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Projects Section Mockup</title>
+<link rel="stylesheet" href="projects.css">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
+</script>
+</head>
+<body>
+
+<div class="redline-strip"></div>
+<nav>
+    <div class="logo"><span class="flag">🇿🇦</span>MR SA<span class="accent">.</span></div>
+  <ul class="nav-links">
+    <li><a href="app2.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle day/night mode">
+      <div class="mode-labels"><span>N</span><span>D</span></div>
+      <div class="mode-knob">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </div>
+    </button>
+</nav>
+
+<section class="section">
+  <div class="section-tag">SHOWROOM <span>· FLOOR 01</span></div>
+  <h2>My <span class="highlight">Projects</span></h2>
+
+  <div class="showroom">
+
+    <!-- WelaCab -->
+    <div class="car-card">
+      <div class="trim-badge">Flagship</div>
+      <div class="car-header">
+        <div class="model-name">WelaCab</div>
+        <div class="model-tagline">WhatsApp-based ride-hailing for small towns and semi-rural areas underserved by existing platforms.</div>
+      </div>
+      <div class="car-body">
+        <div class="spec-list">
+          <div class="spec-item"><span class="k">Engine</span><span class="v">Java / Spring Boot</span></div>
+          <div class="spec-item"><span class="k">Chassis</span><span class="v">MySQL</span></div>
+          <div class="spec-item"><span class="k">Fuel System</span><span class="v">Twilio API</span></div>
+          <div class="spec-item"><span class="k">Build</span><span class="v">Rebuilt from scratch</span></div>
+        </div>
+        <div class="odo-block">
+          <div class="odometer">
+            <div class="odo-digit">0</div><div class="odo-digit">8</div><div class="odo-digit">0</div>
+          </div>
+          <div class="odo-label">Build Progress</div>
+        </div>
+      </div>
+      <div class="car-footer">
+        <div class="btn secondary" onclick="window.location.href='https://github.com/sbonga04/welacab'">Under the Hood</div>
+        <div class="btn primary">View Build Log</div>
+      </div>
+    </div>
+
+    <!-- Franchise POS -->
+    <div class="car-card">
+      <div class="trim-badge proto">Prototype</div>
+      <div class="car-header">
+        <div class="model-name">Franchise POS</div>
+        <div class="model-tagline">Point-of-sale system with a queue-based order pipeline, built from intuition without tutorials.</div>
+      </div>
+      <div class="car-body">
+        <div class="spec-list">
+          <div class="spec-item"><span class="k">Engine</span><span class="v">Java / Spring Boot</span></div>
+          <div class="spec-item"><span class="k">Drivetrain</span><span class="v">4-stage queue pipeline</span></div>
+          <div class="spec-item"><span class="k">Design</span><span class="v">Self-built, no tutorials</span></div>
+        </div>
+        <div class="odo-block">
+          <div class="odometer">
+            <div class="odo-digit">0</div><div class="odo-digit">6</div><div class="odo-digit">0</div>
+          </div>
+          <div class="odo-label">Build Progress</div>
+        </div>
+      </div>
+      <div class="car-footer">
+        <div class="btn secondary" onclick="window.location.href='https://github.com/sbonga04/franchise-pos'">View on GitHub</div>
+      </div>
+    </div>
+
+    <!-- Empty bay -->
+    <div class="garage-bay">
+      <div class="bay-label">Bay 03 · Reserved</div>
+      <div class="bay-sub">Next build in progress</div>
+    </div>
+
+  </div>
+</section>
+<script>
+  const toggle = document.getElementById('modeToggle');
+
+  // Apply saved theme on load
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  }
+
+  toggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const next = isLight ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
+
+</body>
+</html>
