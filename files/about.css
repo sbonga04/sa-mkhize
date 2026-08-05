@@ -232,12 +232,12 @@
   /* ===== Day/Night mode additions ===== */
 
 [data-theme="light"] {
-  --carbon: #eceef0;
-  --panel: #ffffff;
-  --aluminum: #3d4247;
+  --carbon: #f5f5f5;
+  --panel: #815f08;
+  --aluminum: #0371df;
   --aluminum-dim: #9aa0a5;
-  --text-light: #14161a;
-  --text-dim: #5a6066;
+  --text-light: #f97c00;
+  --text-dim: #f3f7f3;
 }
 
 body {
@@ -246,8 +246,8 @@ body {
 
 [data-theme="light"] body {
   background:
-    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(45deg, rgba(225, 255, 2, 0.924) 0px, rgba(239, 238, 238, 0.904) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgb(0, 0, 0) 0px, rgba(247, 245, 245, 0.837) 2px, transparent 2px, transparent 4px),
     var(--carbon);
   background-size: 6px 6px;
 }

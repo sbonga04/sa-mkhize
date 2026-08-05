@@ -268,26 +268,36 @@
   }
 
   /* ===== Day/Night mode additions ===== */
-
 [data-theme="light"] {
-  --carbon: #eceef0;
-  --panel: #ffffff;
-  --aluminum: #3d4247;
-  --aluminum-dim: #9aa0a5;
-  --text-light: #14161a;
-  --text-dim: #5a6066;
+  /* Telemetry Console Palette */
+  --carbon: #f3f3eb;        /* Glowing amber back-lit screen background */
+  --panel: #ffe8cc;         /* Slightly brighter illuminated glass panels */
+  --aluminum: #e63946;      /* High-RPM warning needle red (Matches your button) */
+  --aluminum-dim: #d9480f;  /* Deep warning orange for structural variables */
+  --text-light: #2b1800;    /* Liquid-crystal display ultra-dark amber text */
+  --text-dim: #862e01;      /* Secondary data stream readings */
+  
+  /* Tactical Screen Scanlines */
+  --scanline: rgba(134, 46, 1, 0.05);
+  --glass-tint: rgba(255, 255, 255, 0.15);
 }
 
 body {
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
 }
 
 [data-theme="light"] body {
-  background:
-    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 2px, transparent 4px),
-    var(--carbon);
-  background-size: 6px 6px;
+  color: var(--text-light);
+  background-color: var(--carbon);
+  
+  /* Cathode-ray tube (CRT) monitor micro-texture with horizontal raster scanlines */
+  background-image: 
+    linear-gradient(var(--scanline) 50%, transparent 50%),
+    linear-gradient(90deg, var(--scanline) 50%, transparent 50%),
+    linear-gradient(to bottom, var(--glass-tint), transparent 80%);
+  background-size: 4px 4px, 4px 4px, 100% 100%;
+ 
+
 }
 
 /* Headlight rocker switch */
