@@ -286,7 +286,7 @@ body { transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.
 
 /* kerb strip: flat yellow/black blocks */
 [data-theme="light"] .redline-strip {
-  height: 10px;
+  height: 5px;
   background: repeating-linear-gradient(90deg, #ffd400 0 28px, #111 28px 56px);
 }
 
