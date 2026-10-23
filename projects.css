@@ -274,25 +274,72 @@
   }
     /* ===== Day/Night mode additions ===== */
 
-[data-theme="light"] {
-  --carbon: #eceef0;
-  --panel: #ffffff;
-  --aluminum: #3d4247;
-  --aluminum-dim: #9aa0a5;
-  --text-light: #14161a;
-  --text-dim: #5a6066;
+body { transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease; }
+
+[data-theme="light"] body {
+  color: var(--text-light);
+  background-color: var(--carbon);
+  background-image: none;
 }
+
+/* kerb strip: flat yellow/black blocks */
+[data-theme="light"] .redline-strip {
+  height: 10px;
+  background: repeating-linear-gradient(90deg, #ffd400 0 28px, #111 28px 56px);
+}
+
+/* nav stays black, so its text must go light */
+[data-theme="light"] .logo { color: #ffd400; }
+[data-theme="light"] .nav-links a { color: #c9cdd1; }
+[data-theme="light"] .nav-links a:hover { color: #ffd400; }
+
+/* name on a yellow highlighter strip */
+[data-theme="light"] h1 .highlight,
+[data-theme="light"] h2 .highlight {
+  background: #ffd400;
+  color: #111;
+  padding: 0 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* badges */
+[data-theme="light"] .vin-plate,
+[data-theme="light"] .section-tag {
+  border-color: rgba(0,0,0,0.2);
+  border-left-color: #111;
+}
+[data-theme="light"] .vin-plate span,
+[data-theme="light"] .section-tag span { color: #111; font-weight: 700; }
+
+[data-theme="light"] .spec-row { border-top-color: rgba(0,0,0,0.2); }
+
+[data-theme="light"] body {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.22) 0px, rgba(255,255,255,0.35) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(255,212,0,0.28) 0px, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 4px);
+  background-size: 6px 6px;
+}
+
+/* CTA */
+[data-theme="light"] .cta {
+  background: #111;
+  color: #ffd400;
+  box-shadow: 0 4px 0 #000, 0 8px 20px rgba(0,0,0,0.25);
+}
+[data-theme="light"] body {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.22) 0px, rgba(255,255,255,0.35) 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(255,212,0,0.28) 0px, rgba(0,0,0,0.12) 2px, transparent 2px, transparent 4px);
+  background-size: 6px 6px;
+}
+[data-theme="light"] .cta:active { box-shadow: 0 0 0 #000, 0 2px 8px rgba(0,0,0,0.25); }
+
+/* gauge stays dark, its label must stay readable */
+[data-theme="light"] .rpm-label .unit { color: #c9cdd1; }
 
 body {
   transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-[data-theme="light"] body {
-  background:
-    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 2px, transparent 4px),
-    var(--carbon);
-  background-size: 6px 6px;
 }
 
 /* Headlight rocker switch */
@@ -309,10 +356,6 @@ body {
   padding: 0;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
   flex-shrink: 0;
-}
-[data-theme="light"] .mode-toggle {
-  background: linear-gradient(180deg, #d8dbde, #c2c6ca);
-  border-color: rgba(0,0,0,0.15);
 }
 
 .mode-knob {
