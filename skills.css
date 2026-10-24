@@ -248,7 +248,7 @@ body { transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.
 
 /* kerb strip: flat yellow/black blocks */
 [data-theme="light"] .redline-strip {
-  height: 5px;
+  height: 4px;
   background: repeating-linear-gradient(90deg, #ffd400 0 28px, #111 28px 56px);
 }
 
@@ -356,3 +356,38 @@ body { transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.
   color: var(--text-dim);
   opacity: 0.5;
 }
+
+
+
+
+
+
+/* Page transition animation */
+html { animation: pagein 0.25s ease; }
+html.leaving { opacity: 0; transition: opacity 0.2s ease; }
+@keyframes pagein { from { opacity: 0; } }
+
+.pager {
+  position: fixed;
+  bottom: 24px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 48px;
+  pointer-events: none;
+}
+.pager a {
+  pointer-events: auto;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--racing-red);
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+.pager .next { margin-left: auto; }
+[data-theme="light"] .pager a { background: #111; color: #ffd400; }
